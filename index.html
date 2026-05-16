@@ -8,7 +8,50 @@
     </head>
     <body>
         <div class="container">
-            <div class="header"></div>
+            <div class="header">
+                <div class="top-header">
+                    <div class="searchbar">
+                        <svg
+                            class="magnify-icon"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
+                            />
+                        </svg>
+                        <input input="text" class="searchbox" />
+                    </div>
+                    <div class="user-profile">
+                        <svg
+                            class="notif-bell"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M19 17V11.8C18.5 11.9 18 12 17.5 12H17V18H7V11C7 8.2 9.2 6 12 6C12.1 4.7 12.7 3.6 13.5 2.7C13.2 2.3 12.6 2 12 2C10.9 2 10 2.9 10 4V4.3C7 5.2 5 7.9 5 11V17L3 19V20H21V19L19 17M10 21C10 22.1 10.9 23 12 23S14 22.1 14 21H10M21 6.5C21 8.4 19.4 10 17.5 10S14 8.4 14 6.5 15.6 3 17.5 3 21 4.6 21 6.5"
+                            />
+                        </svg>
+                        <p>Diego Docot</p>
+                        <img src="./public/favicons/favicon.svg" alt="xamdp" />
+                    </div>
+                </div>
+                <div class="bottom-header">
+                    <h2>My Books</h2>
+                    <div class="categories">
+                        <p>All Categories</p>
+                        <svg
+                            class="chevron-down"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                            />
+                        </svg>
+                    </div>
+                </div>
+            </div>
             <div class="sidebar">
                 <div class="logo-sidebar">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -22,19 +65,6 @@
                 <div class="menu-sidebar">
                     <h4>Menu</h4>
                     <div class="menus">
-                        <div class="menu">
-                            <svg
-                                class="menu-icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                            >
-                                <title>book-plus-outline</title>
-                                <path
-                                    d="M13.09 20C13.21 20.72 13.46 21.39 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H18C19.11 2 20 2.9 20 4V13.09C19.67 13.04 19.34 13 19 13C18.66 13 18.33 13.04 18 13.09V4H13V12L10.5 9.75L8 12V4H6V20H13.09M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z"
-                                />
-                            </svg>
-                            <p>Add Book</p>
-                        </div>
                         <div class="menu">
                             <svg
                                 class="menu-icon"
@@ -83,6 +113,19 @@
                                 />
                             </svg>
                             <p>My Messages</p>
+                        </div>
+                        <div class="menu">
+                            <svg
+                                class="menu-icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                            >
+                                <title>book-plus-outline</title>
+                                <path
+                                    d="M13.09 20C13.21 20.72 13.46 21.39 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H18C19.11 2 20 2.9 20 4V13.09C19.67 13.04 19.34 13 19 13C18.66 13 18.33 13.04 18 13.09V4H13V12L10.5 9.75L8 12V4H6V20H13.09M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z"
+                                />
+                            </svg>
+                            <p>Add Book</p>
                         </div>
                     </div>
                 </div>

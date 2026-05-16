@@ -21,14 +21,89 @@ html {
 	box-sizing: border-box;
 	display: grid;
 	grid-template-columns: 1fr 5fr;
-	grid-template-rows: 2fr 6fr;
+	grid-template-rows: 1fr 6fr;
 	color: var(--text);
 }
 
 .header {
+	display: flex;
+	flex-direction: column;
 	grid-column: 2/3;
 	background-color: var(--secondary);
 }
+
+.top-header {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	padding: 15px 20px 15px;
+}
+
+
+.searchbar {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	height: 50px;
+}
+
+.magnify-icon {
+	width: 30px;
+	height: auto;
+}
+
+.searchbox {
+	background-color: var(--accent);
+	border: 1px solid var(--accent);
+	height: 30px;
+	font-size: 1rem;
+	padding-left: 9px;
+	border-radius: 5rem;
+	width: 300px;
+}
+
+.user-profile {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	gap: 2rem;
+}
+
+.notif-bell {
+	width: 30px;
+	height: auto;
+}
+
+.user-profile p {
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.user-profile img {
+	width: 50px;
+	height: auto;
+	border-radius: 5rem;
+}
+
+.bottom-header {
+	display: flex;
+	justify-content: space-between;
+	padding: 15px 20px 15px;
+}
+
+.categories {
+	display: flex;
+	align-items: center;
+}
+
+.categories p {
+	margin: 0;
+}
+
+.chevron-down {
+	width: 30px;
+	height: auto;
+}
+
 
 .sidebar {
 	display: grid;
