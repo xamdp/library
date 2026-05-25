@@ -65,7 +65,7 @@ html {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
-	gap: 2rem;
+	gap: 1rem;
 }
 
 .notif-bell {
@@ -131,7 +131,9 @@ html {
 	font-size: 2rem;
 }
 
-.menu-sidebar {}
+.menu-sidebar {
+	padding-top: 20px;
+}
 
 .menu-sidebar h4 {
 	font-size: 1rem;
@@ -156,8 +158,107 @@ html {
 	height: auto;
 }
 
-.menu p {
+.menu-btn {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
 	font-size: 1rem;
+	border: none;
+	background-color: var(--main);
+	font-family: Inter;
+	width: 150px;
+}
+
+.addbook-dialog {
+	border: none;
+	background-color: var(--background);
+	border-radius: 1rem;
+	box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
+}
+
+.addbook-dialog h3 {
+	margin: 0;
+	padding: 15px 0px 40px;
+}
+
+.book-form p label {
+	width: 150px;
+	display: block;
+	flex-shrink: 0;
+	align-self: center;
+	text-align: right;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.book-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.book-form p {
+	display: flex;
+	gap: 1rem;
+	font-size: 1rem;
+	margin: 0;
+}
+
+.form-row[type="text"],
+.form-row[type="number"] {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	padding: 7px;
+	outline: none;
+	border: 1px solid #E5E7EB;
+	font-size: 1rem;
+}
+
+.legacy-form-row {
+	border: none;
+	margin-bottom: 40px;
+}
+
+.legacy-form-row legend {
+	display: block;
+	text-align: left;
+	margin-bottom: 15px;
+}
+
+.legacy-form-row .radio-label {
+	display: block;
+	font-size: 14px;
+	padding: 0 20px 0 10px;
+}
+
+
+.form-buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 1rem;
+}
+
+.form-btn {
+	display: flex;
+	border: none;
+	padding: 7px;
+	font-size: 1rem;
+}
+
+
+.cancel-btn {
+	background-color: var(--secondary);
+	color: var(--text);
+}
+
+.add-btn {
+	background-color: var(--accent);
+	color: var(--text);
 }
 
 .content {
