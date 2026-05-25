@@ -1,9 +1,11 @@
 const myLibrary = [];
 
-function Book(title, author, date, pages, read) {
+// Book constructor for making book objects
+function Book(title, author, date, pages, read, id) {
 	if (!new.target) {
 		throw Error("You must use the 'new' operator to call the constructor");
 	}
+	this.id = crypto.randomUUID(); // book objs should have unique id
 	this.title = title;
 	this.author = author;
 	this.date = date;
