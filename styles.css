@@ -302,6 +302,37 @@ html {
 	border-radius: 10px;
 	box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
 	background-color: var(--main);
+	padding: 1.7rem 1.5rem 1rem;
+	gap: 10px;
+}
+
+.book-card p {
+	margin: 0;
+}
+
+.book-title {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.book-author {
+	font-size: 1rem;
+
+}
+
+.pages-container {
+	display: flex;
+	gap: 10px;
+}
+
+.remove-btn {
+	padding: 7px;
+	align-self: flex-end;
+	background-color: red;
+	color: var(--main);
+	font-size: 1rem;
+	width: 100px;
+	border: none;
 }
 
 .trends {

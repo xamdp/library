@@ -74,23 +74,50 @@ function showBooks() {
 		book_title.textContent += book.title;
 
 		// create author p tag
+
 		const book_author = document.createElement("p");
 		book_author.classList.add("book-author");
 		book_author.textContent += book.author;
+
+		// create div for page and pageicon
+		const pagesContainer = document.createElement("div");
+		pagesContainer.classList.add("pages-container");
 
 		// create book pages p tag
 		const book_pages = document.createElement("p");
 		book_pages.classList.add("book-pages");
 		book_pages.textContent += book.pages;
 
+		let icon = createIcons();
+		pagesContainer.append(icon, book_pages);
+
 		// create read status
 		const book_status = document.createElement("p");
 		book_status.classList.add("book_status");
 		book_status.textContent += book.read;
 
-		bookCard.append(book_title, book_author, book_pages, book_status);
+		// creates remove-btn
+		const removeButton = document.createElement("button");
+		removeButton.classList.add("remove-btn");
+		removeButton.textContent = "Remove Book";
+
+		bookCard.append(
+			book_title,
+			book_author,
+			pagesContainer,
+			book_status,
+			removeButton,
+		);
 	});
 	console.log(myLibrary);
+}
+
+function createIcons() {
+	const pageSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text-icon lucide-book-open-text"><path d="M12 7v14"/><path d="M16 12h2"/><path d="M16 8h2"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/><path d="M6 12h2"/><path d="M6 8h2"/></svg>`;
+
+	const pageIcon = document.createElement("svg");
+	pageIcon.innerHTML = pageSvg;
+	return pageIcon;
 }
 
 // display dummy books initially
