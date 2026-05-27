@@ -1,35 +1,47 @@
-const myLibrary = [];
+const myLibrary = [
+	{
+		title: "Harry Potter",
+		author: "J.K Rowling",
+	},
+	{
+		title: "The Road to React",
+		author: "Robin Wieruch",
+	},
+];
 
 // Book constructor for making book objects
-function Book(title, author, date, pages, read, id) {
+function Book(title, author, pages, read) {
 	if (!new.target) {
 		throw Error("You must use the 'new' operator to call the constructor");
 	}
 	this.id = crypto.randomUUID(); // book objs should have unique id
 	this.title = title;
 	this.author = author;
-	this.date = date;
 	this.pages = pages;
 	this.read = read;
 	this.addBookTo = function() {
-		return `${this.title} ${this.author} ${this.date} ${this.pages}  ${this.read}`;
+		return `${this.id} ${this.title} ${this.author} ${this.pages}  ${this.read}`;
 	};
 }
 
-// Book.prototype.addBookTo = function() {
-// 	console.log(`${this.title}`);
-// };
+const bookForm = document.querySelector("#bookForm");
+bookForm.addEventListener("submit", (event) => {
+	event.preventDefault();
 
-// this is a sample object, to visualize how will i add eventlistener for passing arguments from dialog or modal to
-// addBookToLibrary.
-let book = new Book("Minna No Nihongo", "先生", "Today", 296, "not yet");
+	const bookTitle = document.querySelector("#book_title").value;
+	const bookAuthor = document.querySelector("#book_author").value;
+	const bookPages = document.querySelector("#book_pages").value;
+	const bookStatus = document.querySelector(
+		'input[name="status"]:checked',
+	).value;
 
-// Object.getPrototypeOf(thisbook);
-// let val = thisbook.addBookTo();
-// console.log(val);
+	const newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
+	console.log(newBook);
+});
 
-function addBookToLibrary(title, author, date, pages, read) {
-	let book = new Book(title, author, date, pages, read);
-	myLibrary.push(book);
-	// take params, create a book then store it in the array
+// this is partially working, but should display book info in a book card element or something
+function showBooks() {
+	myLibrary.forEach((book) => {
+		console.log(book.title);
+	});
 }

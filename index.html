@@ -37,7 +37,7 @@
                     </div>
                 </div>
                 <div class="bottom-header">
-                    <h2>My Books</h2>
+                    <h2>What do you want to read today?</h2>
                     <div class="categories">
                         <p>All Categories</p>
                         <svg
@@ -75,7 +75,7 @@
                                     d="M19,18H9A2,2 0 0,1 7,16V4A2,2 0 0,1 9,2H10V7L12,5.5L14,7V2H19A2,2 0 0,1 21,4V16A2,2 0 0,1 19,18M17,20V22H5A2,2 0 0,1 3,20V6H5V20H17Z"
                                 />
                             </svg>
-                            <p>My Books</p>
+                            <button class="menu-btn">My Books</button>
                         </div>
                         <div class="menu">
                             <svg
@@ -87,7 +87,7 @@
                                     d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"
                                 />
                             </svg>
-                            <p>Favorite Books</p>
+                            <button class="menu-btn">Favorite Books</button>
                         </div>
                         <div class="menu">
                             <svg
@@ -99,7 +99,7 @@
                                     d="M7,5H21V7H7V5M7,13V11H21V13H7M4,4.5A1.5,1.5 0 0,1 5.5,6A1.5,1.5 0 0,1 4,7.5A1.5,1.5 0 0,1 2.5,6A1.5,1.5 0 0,1 4,4.5M4,10.5A1.5,1.5 0 0,1 5.5,12A1.5,1.5 0 0,1 4,13.5A1.5,1.5 0 0,1 2.5,12A1.5,1.5 0 0,1 4,10.5M7,19V17H21V19H7M4,16.5A1.5,1.5 0 0,1 5.5,18A1.5,1.5 0 0,1 4,19.5A1.5,1.5 0 0,1 2.5,18A1.5,1.5 0 0,1 4,16.5Z"
                                 />
                             </svg>
-                            <p>My Categories</p>
+                            <button class="menu-btn">My Categories</button>
                         </div>
                         <div class="menu">
                             <svg
@@ -107,12 +107,11 @@
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
                             >
-                                <title>message-reply-text-outline</title>
                                 <path
                                     d="M9 11H18V13H9V11M18 7H6V9H18V7M22 4V22L18 18H4C2.9 18 2 17.11 2 16V4C2 2.9 2.9 2 4 2H20C21.1 2 22 2.89 22 4M20 4H4V16H18.83L20 17.17V4Z"
                                 />
                             </svg>
-                            <p>My Messages</p>
+                            <button class="menu-btn">My Messages</button>
                         </div>
                         <div class="menu">
                             <svg
@@ -125,12 +124,132 @@
                                     d="M13.09 20C13.21 20.72 13.46 21.39 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H18C19.11 2 20 2.9 20 4V13.09C19.67 13.04 19.34 13 19 13C18.66 13 18.33 13.04 18 13.09V4H13V12L10.5 9.75L8 12V4H6V20H13.09M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z"
                                 />
                             </svg>
-                            <p>Add Book</p>
+                            <button
+                                class="menu-btn"
+                                command="show-modal"
+                                commandfor="book-dialog"
+                            >
+                                Add Book
+                            </button>
+                            <dialog class="addbook-dialog" id="book-dialog">
+                                <h3>Add Book to Library</h3>
+                                <div class="input-container">
+                                    <form
+                                        id="bookForm"
+                                        action="/"
+                                        class="book-form"
+                                    >
+                                        <p>
+                                            <label for="book_title"
+                                                >Book Title</label
+                                            >
+                                            <input
+                                                class="form-row"
+                                                type="text"
+                                                id="book_title"
+                                                name="book_title"
+                                                value="中級から学ぶ日本語"
+                                                required
+                                            />
+                                        </p>
+                                        <p>
+                                            <label for="book_author"
+                                                >Author</label
+                                            >
+                                            <input
+                                                class="form-row"
+                                                type="text"
+                                                id="book_author"
+                                                name="author"
+                                                value="KENKYUSHA"
+                                                required
+                                            />
+                                        </p>
+                                        <p>
+                                            <label for="book_pages"
+                                                >Number of Pages</label
+                                            >
+                                            <input
+                                                class="form-row"
+                                                type="number"
+                                                id="book_pages"
+                                                name="book_pages"
+                                                value="0"
+                                                required
+                                            />
+                                        </p>
+                                        <fieldset class="legacy-form-row">
+                                            <legend>
+                                                Have you read this book?
+                                            </legend>
+                                            <input
+                                                type="radio"
+                                                name="status"
+                                                id="book_read_yes"
+                                                value="yes"
+                                            />
+                                            <label
+                                                class="radio-label"
+                                                for="book-read-yes"
+                                                >Yes</label
+                                            >
+                                            <input
+                                                type="radio"
+                                                name="status"
+                                                id="book_read_no"
+                                                value="no"
+                                            />
+                                            <label
+                                                class="radio-label"
+                                                for="book-read-no"
+                                                >Not yet</label
+                                            >
+                                        </fieldset>
+                                    </form>
+                                    <div class="form-buttons">
+                                        <button
+                                            class="form-btn cancel-btn"
+                                            commandfor="book-dialog"
+                                            command="close"
+                                        >
+                                            Cancel
+                                        </button>
+                                        <!-- this is a temporary button that console log the showBooks() -->
+                                        <button
+                                            form="bookForm"
+                                            class="form-btn add-btn"
+                                            type="submit"
+                                        >
+                                            Add Book
+                                        </button>
+                                    </div>
+                                </div>
+                            </dialog>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="content">content</div>
+            <div class="content">
+                <div class="book-container">
+                    <h3>My Books</h3>
+                    <div class="book-display">
+                        <div class="book-card">
+                            <p class="book-title">Book title</p>
+                            <p class="author">Author</p>
+                        </div>
+                        <div class="book-card">Book 2</div>
+                        <div class="book-card">Book 3</div>
+                        <div class="book-card">Book 4</div>
+                        <div class="book-card">Book 5</div>
+                        <div class="book-card">Book 6</div>
+                    </div>
+                </div>
+                <div class="trending-container">
+                    <div class="trending">
+                        <h3>Trending Books</h3>
+                    </div>
+                </div>
+            </div>
         </div>
         <script src="./script.js"></script>
     </body>
