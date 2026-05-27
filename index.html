@@ -75,7 +75,9 @@
                                     d="M19,18H9A2,2 0 0,1 7,16V4A2,2 0 0,1 9,2H10V7L12,5.5L14,7V2H19A2,2 0 0,1 21,4V16A2,2 0 0,1 19,18M17,20V22H5A2,2 0 0,1 3,20V6H5V20H17Z"
                                 />
                             </svg>
-                            <button class="menu-btn">My Books</button>
+                            <button onclick="showBooks()" class="menu-btn">
+                                My Books
+                            </button>
                         </div>
                         <div class="menu">
                             <svg
@@ -219,6 +221,7 @@
                                             form="bookForm"
                                             class="form-btn add-btn"
                                             type="submit"
+                                            command="close"
                                         >
                                             Add Book
                                         </button>
@@ -233,15 +236,7 @@
                 <div class="book-container">
                     <h3>My Books</h3>
                     <div class="book-display">
-                        <div class="book-card">
-                            <p class="book-title">Book title</p>
-                            <p class="author">Author</p>
-                        </div>
-                        <div class="book-card">Book 2</div>
-                        <div class="book-card">Book 3</div>
-                        <div class="book-card">Book 4</div>
-                        <div class="book-card">Book 5</div>
-                        <div class="book-card">Book 6</div>
+                        <!-- most of book cards creation is in the js file -->
                     </div>
                 </div>
                 <div class="trending-container">

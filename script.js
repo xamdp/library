@@ -1,12 +1,12 @@
 const myLibrary = [
-	{
-		title: "Harry Potter",
-		author: "J.K Rowling",
-	},
-	{
-		title: "The Road to React",
-		author: "Robin Wieruch",
-	},
+	// {
+	// 	title: "Harry Potter",
+	// 	author: "J.K Rowling",
+	// },
+	// {
+	// 	title: "The Road to React",
+	// 	author: "Robin Wieruch",
+	// },
 ];
 
 // Book constructor for making book objects
@@ -36,12 +36,24 @@ bookForm.addEventListener("submit", (event) => {
 	).value;
 
 	const newBook = new Book(bookTitle, bookAuthor, bookPages, bookStatus);
-	console.log(newBook);
+	myLibrary.push(newBook);
 });
 
 // this is partially working, but should display book info in a book card element or something
+// basically i need to create new elements under .book-card
+
 function showBooks() {
 	myLibrary.forEach((book) => {
-		console.log(book.title);
+		const bookdisplay = document.querySelector(".book-display");
+		const bookCard = document.createElement("div");
+		const title = document.createElement("p");
+		title.textContent = book.title;
+
+		const author = document.createElement("p");
+		author.textContent = book.author;
+		bookCard.classList.add("book-card");
+
+		bookdisplay.appendChild(bookCard);
+		bookCard.append(title, author);
 	});
 }
