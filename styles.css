@@ -304,6 +304,11 @@ html {
 	background-color: var(--main);
 	padding: 1.7rem 1.5rem 1rem;
 	gap: 10px;
+
+	&:hover {
+		cursor: pointer;
+		box-shadow: 0 12px 12px hsl(1deg 0% 0% / 0.3);
+	}
 }
 
 .book-card p {

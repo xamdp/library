@@ -1,4 +1,4 @@
-const myLibrary = [
+let myLibrary = [
 	{
 		id: 1,
 		title: "Harry Potter",
@@ -48,6 +48,7 @@ bookForm.addEventListener("submit", (event) => {
 		bookStatus,
 	);
 	myLibrary.push(newBook);
+	showBooks();
 });
 
 // this is partially working, but should display book info in a book card element or something
@@ -100,6 +101,7 @@ function showBooks() {
 		const removeButton = document.createElement("button");
 		removeButton.classList.add("remove-btn");
 		removeButton.textContent = "Remove Book";
+		removeButton.setAttribute("data-book-id", book.id);
 
 		bookCard.append(
 			book_title,
@@ -112,6 +114,9 @@ function showBooks() {
 	console.log(myLibrary);
 }
 
+// i put showBooks here, that way I can delete the created book cards
+showBooks();
+
 function createIcons() {
 	const pageSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text-icon lucide-book-open-text"><path d="M12 7v14"/><path d="M16 12h2"/><path d="M16 8h2"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/><path d="M6 12h2"/><path d="M6 8h2"/></svg>`;
 
@@ -120,5 +125,21 @@ function createIcons() {
 	return pageIcon;
 }
 
-// display dummy books initially
-showBooks();
+const bookContainer = document.querySelector(".book-display");
+
+// delete a book from library
+bookContainer.addEventListener("click", (e) => {
+	const removeBtn = e.target.closest(".remove-btn");
+
+	const dataBookdId = removeBtn.dataset.bookId;
+	// so this works, because it overwrites myLibrary
+	myLibrary = myLibrary.filter((book) => book.id !== dataBookdId);
+	// i just need to add a function that also remove the book card in the book-display.
+});
+
+// bookContainer.forEach((book) => {
+// 	book.addEventListener("click", (event) => { });
+// });
+
+// const dataBookId = event.target.getAttribute("data-book-id");
+// console.log(dataBookId);
