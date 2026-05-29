@@ -220,6 +220,7 @@ html {
 }
 
 .legacy-form-row {
+	display: flex;
 	border: none;
 	margin-bottom: 40px;
 }
@@ -233,7 +234,11 @@ html {
 .legacy-form-row .radio-label {
 	display: block;
 	font-size: 14px;
-	padding: 0 20px 0 10px;
+	/* padding: 0 20px 0 10px; */
+}
+
+.legacy-form-row input {
+	display: block;
 }
 
 
@@ -259,6 +264,16 @@ html {
 .add-btn {
 	background-color: var(--accent);
 	color: var(--text);
+
+	&:hover {
+		cursor: pointer;
+		/* box-shadow: 0 12px 12px hsl(1deg 0% 0% / 0.3); */
+	}
+
+	&:active {
+		transform: translateY(2px);
+		box-shadow: none;
+	}
 }
 
 .content {
