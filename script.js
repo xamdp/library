@@ -11,6 +11,12 @@ let myLibrary = [
 		author: "Robin Wieruch",
 		pages: 200,
 	},
+	{
+		id: 3,
+		title: "よつばと！",
+		author: "Kiyohiko Azuma",
+		pages: 1000,
+	},
 ];
 
 // Book constructor for making book objects
@@ -25,6 +31,9 @@ function Book(id, title, author, pages, read) {
 	this.read = read;
 	this.addBookTo = function() {
 		return `${this.id} ${this.title} ${this.author} ${this.pages} ${this.read}`;
+	};
+	this.toggleRead = function() {
+		this.read = !this.read;
 	};
 }
 
@@ -89,13 +98,18 @@ function showBooks() {
 		book_pages.classList.add("book-pages");
 		book_pages.textContent += book.pages;
 
+		// function for creating the svg
 		let icon = createIcons();
 		pagesContainer.append(icon, book_pages);
 
 		// create read status
 		const book_status = document.createElement("p");
 		book_status.classList.add("book_status");
-		book_status.textContent += book.read;
+		book_status.textContent += `Read Status: ${book.read}`;
+
+		// create container for remove and read button
+		const buttonContainer = document.createElement("div");
+		buttonContainer.classList.add("btns-container");
 
 		// creates remove-btn
 		const removeButton = document.createElement("button");
@@ -103,12 +117,19 @@ function showBooks() {
 		removeButton.textContent = "Remove Book";
 		removeButton.setAttribute("data-book-id", book.id);
 
+		// creates read-btn
+		const readButton = document.createElement("button");
+		readButton.classList.add("read-btn");
+		readButton.textContent += "Read / Not yet";
+
+		buttonContainer.append(readButton, removeButton);
+
 		bookCard.append(
 			book_title,
 			book_author,
 			pagesContainer,
 			book_status,
-			removeButton,
+			buttonContainer,
 		);
 	});
 	console.log(myLibrary);
