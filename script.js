@@ -106,7 +106,8 @@ function showBooks() {
 
 		// create read status
 		const book_status = document.createElement("p");
-		book_status.classList.add("book_status");
+		book_status.classList.add("book-status");
+		book_status.setAttribute("data-book-id", book.id);
 		book_status.textContent += `Read Status: ${book.read}`;
 
 		// create container for remove and read button
@@ -123,6 +124,7 @@ function showBooks() {
 		const readButton = document.createElement("button");
 		readButton.classList.add("read-btn");
 		readButton.textContent += "Read / Not yet";
+		readButton.setAttribute("data-book-id", book.id);
 
 		buttonContainer.append(readButton, removeButton);
 
@@ -149,10 +151,14 @@ function createIcons() {
 	return pageIcon;
 }
 
+// i noticed that if i do two delegation events, in a single container, it produces
+// error for the other eventlistener
+
 // delete a book from library, does not delete explicit dummy data in myLibrary
 const bookContainer = document.querySelector(".book-display");
 bookContainer.addEventListener("click", (e) => {
 	const removeBtn = e.target.closest(".remove-btn");
+	if (!removeBtn) return;
 
 	const dataBookdId = removeBtn.dataset.bookId;
 
@@ -165,6 +171,26 @@ bookContainer.addEventListener("click", (e) => {
 
 		// so this works, because it overwrites myLibrary
 		myLibrary = myLibrary.filter((book) => book.id !== dataBookdId);
+	}
+});
+
+// toggles read status
+bookContainer.addEventListener("click", (e) => {
+	const toggleBtn = e.target.closest(".read-btn");
+	if (!toggleBtn) return;
+	const dataBookId = toggleBtn.dataset.bookId;
+	const bookCard = document.getElementById(dataBookId);
+	const bookStatus = bookCard.querySelector(
+		`.book-status[data-book-id="${dataBookId}"]`,
+	);
+
+	// console.log(bookStatus);
+
+	const book = myLibrary.find((book) => book.id === dataBookId);
+	if (book) {
+		book.toggleRead();
+		bookStatus.textContent = `Read Status: ${book.read}`;
+		console.log(book.read);
 	}
 });
 
