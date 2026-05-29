@@ -189,7 +189,9 @@ bookContainer.addEventListener("click", (e) => {
 	const book = myLibrary.find((book) => book.id === dataBookId);
 	if (book) {
 		book.toggleRead();
-		bookStatus.textContent = `Read Status: ${book.read}`;
+		// maybe i can use icons here, for read status
+		const readStatus = book.read ? "Yes, I have!" : "Nawp, Not yet";
+		bookStatus.textContent = `Read Status: ${readStatus}`;
 		console.log(book.read);
 	}
 });
