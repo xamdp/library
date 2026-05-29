@@ -132,14 +132,15 @@ bookContainer.addEventListener("click", (e) => {
 	const removeBtn = e.target.closest(".remove-btn");
 
 	const dataBookdId = removeBtn.dataset.bookId;
-	// so this works, because it overwrites myLibrary
-	myLibrary = myLibrary.filter((book) => book.id !== dataBookdId);
-	// i just need to add a function that also remove the book card in the book-display.
+
+	// maybe i should just query by id and not data
+	const bookCard = document.getElementById(dataBookdId);
+	// const bookCardID = bookCard.getAttribute("data-book-id");
+	const isBookExist = myLibrary.some((book) => book.id === dataBookdId);
+	if (isBookExist) {
+		bookCard.style.display = "none";
+
+		// so this works, because it overwrites myLibrary
+		myLibrary = myLibrary.filter((book) => book.id !== dataBookdId);
+	}
 });
-
-// bookContainer.forEach((book) => {
-// 	book.addEventListener("click", (event) => { });
-// });
-
-// const dataBookId = event.target.getAttribute("data-book-id");
-// console.log(dataBookId);
