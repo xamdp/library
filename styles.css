@@ -306,7 +306,7 @@ html {
 	gap: 10px;
 
 	&:hover {
-		cursor: pointer;
+		/* cursor: pointer; */
 		box-shadow: 0 12px 12px hsl(1deg 0% 0% / 0.3);
 	}
 }
@@ -330,14 +330,49 @@ html {
 	gap: 10px;
 }
 
+.btns-container {
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 1rem;
+	gap: 0.5rem;
+
+}
+
 .remove-btn {
 	padding: 7px;
-	align-self: flex-end;
 	background-color: red;
 	color: var(--main);
-	font-size: 1rem;
+	font-size: 0.8rem;
 	width: 100px;
 	border: none;
+
+	&:hover {
+		cursor: pointer;
+		/* box-shadow: 0 12px 12px hsl(1deg 0% 0% / 0.3); */
+	}
+
+	&:active {
+		transform: translateY(2px);
+		box-shadow: none;
+	}
+}
+
+.read-btn {
+	padding: 7px;
+	background-color: green;
+	color: var(--main);
+	font-size: 0.8rem;
+	border: none;
+
+	&:hover {
+		cursor: pointer;
+		/* box-shadow: 0 12px 12px hsl(1deg 0% 0% / 0.3); */
+	}
+
+	&:active {
+		transform: translateY(2px);
+		box-shadow: none;
+	}
 }
 
 .trends {
