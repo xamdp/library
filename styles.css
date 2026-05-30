@@ -164,7 +164,7 @@ html {
 	display: grid;
 	grid-template-columns: 2fr;
 	grid-template-rows: repeat(5, 50px);
-	padding: 15px;
+	padding: 15px 10px 15px 30px;
 }
 
 .menu {
