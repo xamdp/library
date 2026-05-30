@@ -2,21 +2,24 @@
 let myLibrary = [
 	{
 		id: 1,
-		title: "Harry Potter",
-		author: "J.K Rowling",
-		pages: 150,
+		title: "中級から学ぶ日本語",
+		author: "KENKYUSHA",
+		pages: 144,
+		read: "Yes, I have!",
 	},
 	{
 		id: 2,
 		title: "The Road to React",
 		author: "Robin Wieruch",
-		pages: 200,
+		pages: 250,
+		read: "Nawp, Not yet",
 	},
 	{
 		id: 3,
 		title: "よつばと！",
 		author: "Kiyohiko Azuma",
 		pages: 1000,
+		read: "Yes, I have!",
 	},
 ];
 
@@ -65,7 +68,7 @@ bookForm.addEventListener("submit", (event) => {
 // this is partially working, but should display book info in a book card element or something
 // basically i need to create new elements under .book-card
 
-function showBooks() {
+function createBookCard() {
 	const bookdisplay = document.querySelector(".book-display");
 	myLibrary.forEach((book) => {
 		// i found out that if i click the My books it creates another exising book card.
@@ -86,7 +89,6 @@ function showBooks() {
 		book_title.textContent += book.title;
 
 		// create author p tag
-
 		const book_author = document.createElement("p");
 		book_author.classList.add("book-author");
 		book_author.textContent += book.author;
@@ -104,11 +106,12 @@ function showBooks() {
 		let icon = createIcons();
 		pagesContainer.append(icon, book_pages);
 
-		// create read status
+		// create read status p tag
 		const book_status = document.createElement("p");
 		book_status.classList.add("book-status");
 		book_status.setAttribute("data-book-id", book.id);
-		book_status.textContent += `Read Status: ${book.read}`;
+
+		book_status.textContent = `Read Status: ${book.read}`;
 
 		// create container for remove and read button
 		const buttonContainer = document.createElement("div");
@@ -136,6 +139,10 @@ function showBooks() {
 			buttonContainer,
 		);
 	});
+}
+
+function showBooks() {
+	createBookCard();
 	console.log(myLibrary);
 }
 
@@ -200,6 +207,7 @@ bookContainer.addEventListener("click", (e) => {
 		// maybe i can use icons here, for read status
 		const readStatus = book.read ? "Yes, I have!" : "Nawp, Not yet";
 		bookStatus.textContent = `Read Status: ${readStatus}`;
+		console.log(readStatus);
 	}
 });
 

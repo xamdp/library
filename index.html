@@ -37,7 +37,10 @@
                     </div>
                 </div>
                 <div class="bottom-header">
-                    <h2>What do you want to read today?</h2>
+                    <div class="greetings">
+                        <p class="greet">Hi there,</p>
+                        <p class="greet-name">Diego Docot (@xamdp)</p>
+                    </div>
                     <div class="categories">
                         <p>All Categories</p>
                         <svg
@@ -78,42 +81,6 @@
                             <button onclick="showBooks()" class="menu-btn">
                                 My Books
                             </button>
-                        </div>
-                        <div class="menu">
-                            <svg
-                                class="menu-icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"
-                                />
-                            </svg>
-                            <button class="menu-btn">Favorite Books</button>
-                        </div>
-                        <div class="menu">
-                            <svg
-                                class="menu-icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    d="M7,5H21V7H7V5M7,13V11H21V13H7M4,4.5A1.5,1.5 0 0,1 5.5,6A1.5,1.5 0 0,1 4,7.5A1.5,1.5 0 0,1 2.5,6A1.5,1.5 0 0,1 4,4.5M4,10.5A1.5,1.5 0 0,1 5.5,12A1.5,1.5 0 0,1 4,13.5A1.5,1.5 0 0,1 2.5,12A1.5,1.5 0 0,1 4,10.5M7,19V17H21V19H7M4,16.5A1.5,1.5 0 0,1 5.5,18A1.5,1.5 0 0,1 4,19.5A1.5,1.5 0 0,1 2.5,18A1.5,1.5 0 0,1 4,16.5Z"
-                                />
-                            </svg>
-                            <button class="menu-btn">My Categories</button>
-                        </div>
-                        <div class="menu">
-                            <svg
-                                class="menu-icon"
-                                xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    d="M9 11H18V13H9V11M18 7H6V9H18V7M22 4V22L18 18H4C2.9 18 2 17.11 2 16V4C2 2.9 2.9 2 4 2H20C21.1 2 22 2.89 22 4M20 4H4V16H18.83L20 17.17V4Z"
-                                />
-                            </svg>
-                            <button class="menu-btn">My Messages</button>
                         </div>
                         <div class="menu">
                             <svg
@@ -184,29 +151,33 @@
                                             <legend>
                                                 Have you read this book?
                                             </legend>
-                                            <input
-                                                type="radio"
-                                                name="status"
-                                                id="book_read_yes"
-                                                value="yes"
-                                                required
-                                            />
-                                            <label
-                                                class="radio-label"
-                                                for="book_read_yes"
-                                                >Yes</label
-                                            >
-                                            <input
-                                                type="radio"
-                                                name="status"
-                                                id="book_read_no"
-                                                value="no"
-                                            />
-                                            <label
-                                                class="radio-label"
-                                                for="book_read_no"
-                                                >Not yet</label
-                                            >
+                                            <p class="radio-select">
+                                                <input
+                                                    type="radio"
+                                                    name="status"
+                                                    id="book_read_yes"
+                                                    value="Yes, I have!"
+                                                    required
+                                                />
+                                                <label
+                                                    class="radio-label"
+                                                    for="book_read_yes"
+                                                    >Yes, I have!</label
+                                                >
+                                            </p>
+                                            <p class="radio-select">
+                                                <input
+                                                    type="radio"
+                                                    name="status"
+                                                    id="book_read_no"
+                                                    value="Nawp, Not yet"
+                                                />
+                                                <label
+                                                    class="radio-label"
+                                                    for="book_read_no"
+                                                    >Nawp, Not yet</label
+                                                >
+                                            </p>
                                         </fieldset>
                                     </form>
                                     <div class="form-buttons">
@@ -227,6 +198,42 @@
                                     </div>
                                 </div>
                             </dialog>
+                        </div>
+                        <div class="menu">
+                            <svg
+                                class="menu-icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M12.1,18.55L12,18.65L11.89,18.55C7.14,14.24 4,11.39 4,8.5C4,6.5 5.5,5 7.5,5C9.04,5 10.54,6 11.07,7.36H12.93C13.46,6 14.96,5 16.5,5C18.5,5 20,6.5 20,8.5C20,11.39 16.86,14.24 12.1,18.55M16.5,3C14.76,3 13.09,3.81 12,5.08C10.91,3.81 9.24,3 7.5,3C4.42,3 2,5.41 2,8.5C2,12.27 5.4,15.36 10.55,20.03L12,21.35L13.45,20.03C18.6,15.36 22,12.27 22,8.5C22,5.41 19.58,3 16.5,3Z"
+                                />
+                            </svg>
+                            <button class="menu-btn">Favorite Books</button>
+                        </div>
+                        <div class="menu">
+                            <svg
+                                class="menu-icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M7,5H21V7H7V5M7,13V11H21V13H7M4,4.5A1.5,1.5 0 0,1 5.5,6A1.5,1.5 0 0,1 4,7.5A1.5,1.5 0 0,1 2.5,6A1.5,1.5 0 0,1 4,4.5M4,10.5A1.5,1.5 0 0,1 5.5,12A1.5,1.5 0 0,1 4,13.5A1.5,1.5 0 0,1 2.5,12A1.5,1.5 0 0,1 4,10.5M7,19V17H21V19H7M4,16.5A1.5,1.5 0 0,1 5.5,18A1.5,1.5 0 0,1 4,19.5A1.5,1.5 0 0,1 2.5,18A1.5,1.5 0 0,1 4,16.5Z"
+                                />
+                            </svg>
+                            <button class="menu-btn">My Categories</button>
+                        </div>
+                        <div class="menu">
+                            <svg
+                                class="menu-icon"
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    d="M9 11H18V13H9V11M18 7H6V9H18V7M22 4V22L18 18H4C2.9 18 2 17.11 2 16V4C2 2.9 2.9 2 4 2H20C21.1 2 22 2.89 22 4M20 4H4V16H18.83L20 17.17V4Z"
+                                />
+                            </svg>
+                            <button class="menu-btn">My Messages</button>
                         </div>
                     </div>
                 </div>

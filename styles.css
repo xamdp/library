@@ -17,7 +17,7 @@ html {
 }
 
 .container {
-	height: 100%;
+	height: 100vh;
 	box-sizing: border-box;
 	display: grid;
 	grid-template-columns: 1fr 5fr;
@@ -151,11 +151,32 @@ html {
 .menu {
 	display: flex;
 	gap: 10px;
+
+	&:hover {
+		.menu-icon {
+			cursor: pointer;
+			width: 32px;
+			height: auto;
+			font-size: 1.1rem;
+		}
+
+		.menu-btn {
+			cursor: pointer;
+			font-size: 1.1rem;
+		}
+	}
 }
 
 .menu-icon {
 	width: 30px;
 	height: auto;
+
+	/* &:hover { */
+	/* 	cursor: pointer; */
+	/* 	width: 32px; */
+	/* 	height: auto; */
+	/* 	font-size: 1.1rem; */
+	/* } */
 }
 
 .menu-btn {
@@ -167,6 +188,11 @@ html {
 	background-color: var(--main);
 	font-family: Inter;
 	width: 150px;
+
+	/* &:hover { */
+	/* 	cursor: pointer; */
+	/* 	font-size: 1.1rem; */
+	/* } */
 }
 
 .addbook-dialog {
@@ -174,6 +200,7 @@ html {
 	background-color: var(--background);
 	border-radius: 1rem;
 	box-shadow: 0 6px 6px hsl(0deg 0% 0% / 0.3);
+	padding: 2rem;
 }
 
 .addbook-dialog h3 {
@@ -221,8 +248,8 @@ html {
 
 .legacy-form-row {
 	display: flex;
-	border: none;
-	margin-bottom: 40px;
+	border: 1px solid black;
+	border: 1px solid #E5E7EB;
 }
 
 .legacy-form-row legend {
@@ -231,14 +258,33 @@ html {
 	margin-bottom: 15px;
 }
 
-.legacy-form-row .radio-label {
-	display: block;
-	font-size: 14px;
-	/* padding: 0 20px 0 10px; */
+.legacy-form-row .radio-select {
+	display: flex;
+	gap: 1rem;
+	font-size: 1.5rem;
+
 }
 
-.legacy-form-row input {
-	display: block;
+.legacy-form-row .radio-label {
+	font-size: 14px;
+	text-align: left;
+}
+
+.legacy-form-row input[type="radio"] {
+	margin: 0;
+	accent-color: #0076ff;
+	width: 20px;
+	height: 20px;
+	border: 2px solid #333;
+	border-radius: 0px;
+	background-color: #fff;
+	vertical-align: middle;
+
+	&:checked {
+		background-color: #0076ff;
+		border-color: #0076ff;
+		position: relative;
+	}
 }
 
 
@@ -259,11 +305,20 @@ html {
 .cancel-btn {
 	background-color: var(--secondary);
 	color: var(--text);
+	border-radius: 7px;
+	padding: 10px;
+
+	&:active {
+		transform: translateY(2px);
+		box-shadow: none;
+	}
 }
 
 .add-btn {
 	background-color: var(--accent);
 	color: var(--text);
+	border-radius: 7px;
+	padding: 10px;
 
 	&:hover {
 		cursor: pointer;
@@ -291,6 +346,7 @@ html {
 	grid-column: 1;
 	grid-row: 1/3;
 	grid-template-rows: 50px 1fr;
+	overflow-y: auto;
 }
 
 .trending-container {
