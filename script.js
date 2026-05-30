@@ -33,9 +33,9 @@ function Book(id, title, author, pages, read) {
 	this.addBookTo = function() {
 		return `${this.id} ${this.title} ${this.author} ${this.pages} ${this.read}`;
 	};
-	this.toggleRead = function() {
-		this.read = !this.read;
-	};
+	// this.toggleRead = function() {
+	// 	this.read = !this.read;
+	// };
 }
 
 const bookForm = document.querySelector("#bookForm");
@@ -174,6 +174,11 @@ bookContainer.addEventListener("click", (e) => {
 	}
 });
 
+// i made a mistake, apparently, this is what a Book prototype function is
+Book.prototype.toggleRead = function() {
+	this.read = !this.read;
+};
+
 // toggles read status
 bookContainer.addEventListener("click", (e) => {
 	const toggleBtn = e.target.closest(".read-btn");
@@ -188,11 +193,13 @@ bookContainer.addEventListener("click", (e) => {
 
 	const book = myLibrary.find((book) => book.id === dataBookId);
 	if (book) {
+		// ffff, so i don't need to append .prototype after the book not like this
+		// book.prototype.toggleRead()
 		book.toggleRead();
+
 		// maybe i can use icons here, for read status
 		const readStatus = book.read ? "Yes, I have!" : "Nawp, Not yet";
 		bookStatus.textContent = `Read Status: ${readStatus}`;
-		console.log(book.read);
 	}
 });
 
