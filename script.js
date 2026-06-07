@@ -143,7 +143,6 @@ function createBookCard() {
 
 function showBooks() {
 	createBookCard();
-	console.log(myLibrary);
 }
 
 // i put showBooks here, that way I can delete the created book cards
@@ -195,8 +194,6 @@ bookContainer.addEventListener("click", (e) => {
 	const bookStatus = bookCard.querySelector(
 		`.book-status[data-book-id="${dataBookId}"]`,
 	);
-
-	// console.log(bookStatus);
 
 	const book = myLibrary.find((book) => book.id === dataBookId);
 	if (book) {
