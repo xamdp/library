@@ -98,6 +98,11 @@ class Library {
 			notYetcard.querySelector('.book-pages').textContent = book.pages;
 			notYetcard.querySelector('.book-status').textContent = book.read;
 
+			const removeBtn = notYetcard.querySelector('.remove-btn');
+			removeBtn.setAttribute('data-book-id', book.id)
+			const readBtn = notYetcard.querySelector('.read-btn');
+			readBtn.setAttribute('data-book-id', book.id)
+
 			this.bookDisplay.append(notYetcard);
 		})
 
