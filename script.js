@@ -4,7 +4,6 @@ class Library {
 
 		this.template = document.getElementById('book-card-template')
 		this.bookDisplay = document.querySelector('.book-display')
-		this.form = document.querySelector("#bookForm");
 
 		this.id = crypto.randomUUID();
 		this.title = document.querySelector("#book_title");
@@ -12,7 +11,9 @@ class Library {
 		this.pages = document.querySelector("#book_pages");
 		this.read = document.getElementsByName('status');
 
+		this.form = document.querySelector("#bookForm");
 		this.renderBtn = document.getElementById('renderBtn');
+		this.readBtn = document.querySelector('.read-btn');
 
 
 		// the library array itself is moved inside the constructor
@@ -48,11 +49,17 @@ class Library {
 	initListeners() {
 		this.form.addEventListener('submit', this.handleBookForm);
 		this.renderBtn.addEventListener('click', this.renderBookCard);
+		this.bookDisplay.addEventListener('click', (event) => {
+			if (event.target.matches('.read-btn')) {
+				this.toggleBookRead(event)
+			}
+		});
 	}
 
-	// while this one, removes, idk yet, when to call this
+	// what this does, both listeners are stop at the end of handle event listeners.
 	stopListeners() {
 		this.form.removeEventListener('submit', this.handleBookForm)
+		this.renderBtn.removeEventListener('click', this.renderBookCard);
 	}
 
 	handleBookForm = (event) => {
@@ -76,6 +83,7 @@ class Library {
 		this.myLibrary.push(newBookObj);
 		this.renderBookCard();
 		this.form.reset();
+
 	}
 
 
@@ -106,9 +114,20 @@ class Library {
 			this.bookDisplay.append(notYetcard);
 		})
 
+
 	}
 
-	deleteBook() { }
+	toggleBookRead = (event) => {
+		const btn = event.target.closest('.read-btn')
+		const id = btn.dataset.bookId;
+		console.log(id)
+		// working partially, able to console the id
+		// will use this id to match the book-cards id and then only toggle the read status.
+	}
+
+	deleteBook = () => {
+
+	}
 
 
 }
