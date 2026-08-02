@@ -5,6 +5,7 @@ class Library {
 		this.template = document.getElementById('book-card-template')
 		this.bookDisplay = document.querySelector('.book-display')
 
+		// these are targettting the elements inside the form, not the elements inside a book card
 		this.id = crypto.randomUUID();
 		this.title = document.querySelector("#book_title");
 		this.author = document.querySelector("#book_author");
@@ -14,6 +15,7 @@ class Library {
 		this.form = document.querySelector("#bookForm");
 		this.renderBtn = document.getElementById('renderBtn');
 		this.readBtn = document.querySelector('.read-btn');
+		this.bookStatus = document.querySelector('.book-status')
 
 
 		// the library array itself is moved inside the constructor
@@ -104,7 +106,7 @@ class Library {
 			notYetcard.querySelector('.book-title').textContent = book.title;
 			notYetcard.querySelector('.book-author').textContent = book.author
 			notYetcard.querySelector('.book-pages').textContent = book.pages;
-			notYetcard.querySelector('.book-status').textContent = book.read;
+			notYetcard.querySelector('.book-status').textContent = `Read Status: ${book.read}`;
 
 			const removeBtn = notYetcard.querySelector('.remove-btn');
 			removeBtn.setAttribute('data-book-id', book.id)
@@ -120,9 +122,18 @@ class Library {
 	toggleBookRead = (event) => {
 		const btn = event.target.closest('.read-btn')
 		const id = btn.dataset.bookId;
-		console.log(id)
-		// working partially, able to console the id
-		// will use this id to match the book-cards id and then only toggle the read status.
+		// const bookCard = document.getElementById(id);
+		// const bookStatus = bookCard.querySelector(`.book-status[data-book-id="${id}"]`)
+
+		const book = this.myLibrary.find((book) => book.id === id);
+		if (book) {
+			book.read = !book.read;
+
+			const readStatus = book.read ? "Yes, I have!" : "Nawp, Not yet"
+			const bookCard = document.getElementById(id);
+			bookCard.querySelector('.book-status').textContent = `Read Status: ${readStatus}`;
+			console.log(readStatus);
+		}
 	}
 
 	deleteBook = () => {
