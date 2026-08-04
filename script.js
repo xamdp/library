@@ -1,5 +1,4 @@
 
-// trying to change the values from array when toggleRead event occurs
 let myLibrary = [
 	{
 		id: 1,
@@ -28,22 +27,17 @@ class Library {
 	constructor() {
 
 		this.template = document.getElementById('book-card-template')
-		this.bookDisplay = document.querySelector('.book-display')
 
+		// for passing values to handleBookForm
 		this.title = document.querySelector("#book_title");
 		this.author = document.querySelector("#book_author");
 		this.pages = document.querySelector("#book_pages");
 		this.read = document.getElementsByName('status');
 
+		// for eventListeners
+		this.bookDisplay = document.querySelector('.book-display')
 		this.form = document.querySelector("#bookForm");
 		this.renderBtn = document.getElementById('renderBtn');
-		this.readBtn = document.querySelector('.read-btn');
-		this.bookStatus = document.querySelector('.book-status')
-
-
-		// the library array itself is moved inside the constructor
-
-
 	}
 
 	// i tried searching, on where to actually put eventListeners
@@ -61,12 +55,6 @@ class Library {
 				this.deleteBook(event)
 			}
 		})
-	}
-
-	// what this does, both listeners are stop at the end of handle event listeners.
-	stopListeners() {
-		this.form.removeEventListener('submit', this.handleBookForm)
-		this.renderBtn.removeEventListener('click', this.renderBookCard);
 	}
 
 	handleBookForm = (event) => {
@@ -91,8 +79,6 @@ class Library {
 
 	}
 
-
-	// class methods
 	renderBookCard = () => {
 
 		myLibrary.forEach((book) => {
